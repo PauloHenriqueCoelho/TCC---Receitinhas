@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
                $mail->Host = 'smtp.gmail.com';  // Para Gmail
                $mail->SMTPAuth = true;
                $mail->Username = 'receitinhasbrasileiras@gmail.com';  // Seu e-mail
-               $mail->Password = 'lymq lnjt gkux atgp';  // Sua senha de e-mail ou App password
+               $mail->Password = '';  // Sua senha de e-mail ou App password
                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                $mail->Port = 587;
 
