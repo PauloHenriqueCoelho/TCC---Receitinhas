@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Quinta da receita</title>
+    <title>Logar</title>
 
       <!--Nav bar, o site inteiro foi trabalhado usando bootstrap.-->
 
@@ -144,7 +144,7 @@ if(isset($_POST['submit'])){
 
   <div class="container">
     <div class="body d-md-flex align-items-center justify-content-between" style="box-shadow: 0 0.5rem 1rem rgb(183 183 183);">
-        <div class="box-1 mt-md-0 mt-5" style="width: 80%;">
+        <div class="box-1 mt-md-0 mt-5" style="width: 100%;">
             <img src="imagens/BannerLogin.jpeg" class="" alt="" id="imageLogin">
         </div>
         <div class="box-2 d-flex flex-column h-100">

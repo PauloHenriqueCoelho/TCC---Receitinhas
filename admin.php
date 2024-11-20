@@ -53,6 +53,22 @@ if (isset($_GET['ban_user_id'])) {
     }
 }
 
+if (isset($_GET['delete_user_id'])) {
+    $delete_user_id = intval($_GET['delete_user_id']); // Sanitizar o ID
+
+    // Query para excluir o usuário do banco de dados
+    $delete_query = "DELETE FROM `user_form` WHERE id = $delete_user_id";
+
+    if (mysqli_query($conn, $delete_query)) {
+        echo "<script>alert('Usuário apagado com sucesso!');</script>";
+    } else {
+        echo "<script>alert('Erro ao apagar o usuário.');</script>";
+    }
+
+    // Redirecionar para evitar re-execução ao atualizar a página
+    echo "<script>window.location = 'admin.php';</script>";
+}
+
 // Consulta todas as receitas
 $sql_recipes = "SELECT id, name, tipo FROM recipes";
 $result_recipes = $conn->query($sql_recipes);
@@ -110,44 +126,52 @@ $result_users = $conn->query($sql_users);
     </table>
 
     <h3>Gerenciar Usuários</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($result_users && $result_users->num_rows > 0): ?>
-                <?php while ($row = $result_users->fetch_assoc()): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($row['id']); ?></td>
-                        <td><?= htmlspecialchars($row['name']); ?></td>
-                        <td><?= htmlspecialchars($row['email']); ?></td>
-                        <td><?= htmlspecialchars($row['status']); ?></td>
-                        <td>
-                            <?php if ($row['status'] == 'ativo'): ?>
-                                <a href="admin.php?ban_user_id=<?= $row['id']; ?>" 
-                                   class="btn btn-warning"
-                                   onclick="return confirm('Tem certeza que deseja banir este usuário?');">
-                                    Banir
-                                </a>
-                            <?php else: ?>
-                                <span class="text-muted">Banido</span>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if ($result_users && $result_users->num_rows > 0): ?>
+            <?php while ($row = $result_users->fetch_assoc()): ?>
                 <tr>
-                    <td colspan="5">Nenhum usuário encontrado.</td>
+                    <td><?= htmlspecialchars($row['id']); ?></td>
+                    <td><?= htmlspecialchars($row['name']); ?></td>
+                    <td><?= htmlspecialchars($row['email']); ?></td>
+                    <td><?= htmlspecialchars($row['status']); ?></td>
+                    <td>
+                        <?php if ($row['status'] == 'ativo'): ?>
+                            <a href="admin.php?ban_user_id=<?= $row['id']; ?>" 
+                               class="btn btn-warning"
+                               onclick="return confirm('Tem certeza que deseja banir este usuário?');">
+                                Banir
+                            </a>
+                        <?php else: ?>
+                            <span class="text-muted">Banido</span>
+                        <?php endif; ?>
+                        
+                        <!-- Botão para excluir o usuário -->
+                        <a href="admin.php?delete_user_id=<?= $row['id']; ?>" 
+                           class="btn btn-danger"
+                           onclick="return confirm('Tem certeza que deseja apagar esta conta?');">
+                            Apagar
+                        </a>
+                    </td>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="5">Nenhum usuário encontrado.</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+</table>
+
 
     <a href="index.php" class="btn btn-dark">Voltar para o site</a>
 </div>

@@ -181,7 +181,7 @@ if(isset($_POST['submit'])){
 
   <div class="container">
     <div class="body d-md-flex align-items-center justify-content-between" style="box-shadow: 0 0.5rem 1rem rgb(183 183 183); " >
-        <div class="box-1 mt-md-0 mt-5" style="width: 80%;">
+        <div class="box-1 mt-md-0 mt-5" style="width: 100%;">
             <img src="imagens/BannerLogin.jpeg" class="" alt="" id="imageLogin">
         </div>
         <div class=" box-2 d-flex flex-column h-100">
@@ -229,6 +229,9 @@ if(isset($_POST['submit'])){
    <div class="d-grid">
       <input type="submit" name="submit" value="Cadastrar" class="btn btn-dark">
    </div>
+   <p class="footer text mb-0 mt-md-4 mt-4">Já possui uma conta? 
+      <span class="p-color me-1"><a href="login.php" class="p-color me-1">Logar</a></span>
+    </p>
 </form>
                    
                    

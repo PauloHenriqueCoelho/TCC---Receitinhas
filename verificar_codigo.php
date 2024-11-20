@@ -27,11 +27,62 @@ if (isset($_POST['verify_code'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <!-- Formulário de verificação -->
-<form action="" method="POST">
-    <input type="email" name="email" placeholder="Digite seu e-mail" required>
-    <input type="text" name="verification_code" placeholder="Digite o código de verificação" required>
-    <input type="submit" name="verify_code" value="Verificar Código">
-</form>
+
+<div class="box-2 d-flex flex-column h-100">
+            <div class="mt-5">
+                <h2 class="tituloConfirmar">Confirme.</h2>
+                <p class="text-muted mb-2 mensagemConfirmar" > Um código foi enviado para o seu email.</p>
+                <div class="d-flex flex-column">
+                  
+                    <p class="text-muted mb-2 mensagemConfirmar2" >É necessário verificar sua conta antes de prosseguir</p>
+                    <div class="form-container">
+                    <form action="" method="POST">
+                    <div class="input-group">
+  <input type="email" name="email" placeholder="Digite seu e-mail novamente" class="form-control" required>
+  <input type="text" name="verification_code" placeholder="Digite o código de verificação" class="form-control" required>
+  <button class="btn btn-outline-secondary" name="verify_code" type="submit" value="Verificar Código">Verificar</button>
+
+</div> 
+</div>
+</div>
+</div>         
+</div>
+
+<style>
+
+.mensagemConfirmar{
+        font-size: 20px;
+    }
+
+    .mensagemConfirmar2{
+        font-size: 15px;
+    }
+   @media (max-width: 980px) {
+    .tituloConfirmar{
+        font-size: 100px;
+        
+    }
+
+    .form-control{
+        height: 110px;
+    }
+
+    .form-control::placeholder{
+        font-size: 30px;
+    }
+
+    .mensagemConfirmar{
+        font-size: 50px;
+    }
+
+    .mensagemConfirmar2{
+        font-size: 35px;
+    }
+    }
+
+</style>
+
+
 
 <?php
 if (isset($message)) {
