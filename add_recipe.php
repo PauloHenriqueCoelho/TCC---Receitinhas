@@ -216,13 +216,14 @@ $conn->close();
       <div class="p-2 w-80 flex-grow-1 ">
         <div class="mb-3" >
           <label for="ingredients" class="form-label"> <h5> Escreva os ingredientes necessários, usando quebra de linha. </h5>
-            <a class="linkEstilo1" href="">Veja como fazer.</a> 
+          <p> <strong>Caso seja sua primeira vez cadastrando receita, você precisa antes ver a forma correta de se escrever.</strong> </p>
+            <a class="linkEstilo1" href="comofazer.html">Veja como fazer.</a> 
           </label>
           <textarea class="form-control" id="ingredients" name="ingredients" rows="5" required></textarea><br><br>
         </div>
         <div class="mb-3" >
           <label for="steps" class="form-label"> <h5> Escreva o modo de preparo da receita, usando quebra de linha. </h5>
-            <a class="linkEstilo1" href="">Veja como fazer.</a> 
+            <a class="linkEstilo1" href="comofazer.html">Veja como fazer.</a> 
           </label>
           <textarea class="form-control" id="steps" name="steps" type="steps" rows="5" required></textarea><br><br>
         </div>
